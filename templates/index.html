@@ -198,24 +198,20 @@
   </div>  
   <div class="row">
    <div class="six columns">
-              <form method="post" class="contato">
+              <form method="post" class="contato" action="{% url website.views.home %}">{% csrf_token %}
                   {{ form.non_field_errors }}
                 <label class="">Nome</label>
-                <input class="" name="Nome" maxlength="60" type="text" value="" placeholder="seu nome">
-                  {{ form.nome }}
+                <input class="" name="nome" maxlength="60" type="text" value="" placeholder="seu nome">
                   {{ form.nome.errors }}
                 <label class="">Email</label>
-                <input class="" name="email" maxlength="100" type="email" value="" placeholder="seu email">
-                  {{ form.email }}
+                  <input class="" name="email" maxlength="100" type="email" value="" placeholder="seu email">
                   {{ form.email.errors }}
                 <label class="">Telefone</label>
-                <input class="" name="Telefone" type="text" maxlength="20" value="" placeholder="0012345678">
-                  {{ form.telefone }}
+                <input class="" name="telefone" type="text" maxlength="20" value="" placeholder="0012345678">
                   {{ form.telefone.errors }}
                 <label class="">Comentário</label>
-                <textarea class="" name="Comentário" id="textarea" placeholder="deixe seu comentário aqui" cols="1000" rows="10" style="height:70px"></textarea>
-                  {{ form.mensagem }}
-                  {{ form.mensagem.errors }}{% csrf_token %}
+                <textarea class="" name="mensagem" id="textarea" placeholder="deixe seu comentário aqui" cols="1000" rows="10" style="height:70px"></textarea>
+                  {{ form.mensagem.errors }}
                 <button type="submit" class="success button small radius">Enviar</button>
               </form>
             </div>
