@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Agência 128Bits</title>
+  
+  <!-- Included CSS Files (Uncompressed) -->
+  <!--
+  <link rel="stylesheet" href="stylesheets/foundation.css">
+  -->
+  
+  <!-- Included CSS Files (Compressed) -->
+  <link rel="stylesheet" href="{{ MEDIA_URL }}stylesheets/foundation.min.css">
+  <link rel="stylesheet" href="{{ MEDIA_URL }}stylesheets/app.css">
+  <link rel="stylesheet" href="{{ MEDIA_URL }}stylesheets/estilo.css">
+
+  <script src="{{ MEDIA_URL }}javascripts/modernizr.foundation.js"></script>
+
+
+</head>
+<body>
+ 
+<header>
+  <nav class="contain-to-grid" id="nav">
+    <div class="row">
+      <div class="three columns">
+        <h1><img src="{{ MEDIA_URL }}images/logo.png" /></h1>
+      </div>
+
+      <section id="header-menu">
+        <div class="nine columns">
+          <ul class="menu right">
+            <li><a class="link" href="#quemsomos">Quem Somos</a></li>
+            <li><a class="link" href="#equipe">Nossa equipe</a></li>
+            <li><a class="link" href="#oquefazemos">O que fazemos</a></li>
+            <li><a class="link" href="#portfolio">Portfólio</a></li>
+            <li><a class="link" href="#contact">Contato</a></li>
+          </ul>
+        </div>
+      </section>  
+    </div>
+  </nav>
+
+  <section id="css">
+      <div class="row">
+        <div class="twelve columns">
+          <img src="{{ MEDIA_URL }}/images/dog1.png" />
+        </div>
+        
+        
+      </div>
+  </section>
+
+</header>
+
+
+<section id="quemsomos">
+  <div class="row">
+     <p id="back-top"> <a href="#top"><span></span>Inicio</a> </p>
+    <div class="twelve columns title">
+      <h2 class="text-center">Quem somos</h2>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="twelve columns">
+      <div class="twelve columns">
+      <blockquote><strong>A 128Bits</strong> 
+        é uma empresa provedora de soluções em tecnologia da informação.  Composta por um jovem time ávido por desafios, a 128bits trabalha no universo da informação e gestão de conteúdo, desenvolvimento sistemas customizados e produzindo websites.</blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="equipe">
+  <div class="row">
+    <div class="twelve columns title">
+      <h2 class="text-center">Nossa Equipe</h2>
+    </div>
+  </div>  
+
+  <div class="row">
+    <div class="twelve columns">
+      <div class="twelve columns">
+      <blockquote>Entre programadores, designers e profissionais de marketing, a agência digital tem um time completo para ser o braço direito da sua empresa.</blockquote>
+    </div>
+  </div>
+  
+  <div class="row team-margin">
+    <div class=" six columns centered">
+      {% for equipe in colaborador %}
+      {% ifequal equipe.cargo '0' %}
+      <div class="six mobile-two columns">
+          <div class="team text-center">
+            <img src="{{ MEDIA_URL }}{{ equipe.foto }}">
+            <div>
+              <h3>{{ equipe.nome }} <span>{{ equipe.sobrenome }}</span></h3>
+              <p class="func">{{ equipe.funcao }} </p>
+              <p class="bio"></p>
+            </div>
+          </div>
+      </div>
+      {% endifequal %}
+      {% endfor %}
+
+    </div>      
+  </div>
+
+  <div class="row">
+    <div class=" ten columns centered">
+      {% for equipe in colaborador %}
+      {% ifequal equipe.cargo '1' %}
+      <div class="four mobile-two columns">
+          <div class="team text-center">
+              <img src="{{ MEDIA_URL }}{{ equipe.foto }}">
+              <div>
+                  <h3>{{ equipe.nome }} <span>{{ equipe.sobrenome }}</span></h3>
+                  <p class="func">{{ equipe.funcao }} </p>
+                  <p class="bio"></p>
+              </div>
+          </div>
+      </div>
+      {% endifequal %}
+      {% endfor %}
+
+    </div>   
+  </div>
+</section>
+
+
+<section id="oquefazemos">
+  <div class="row">
+    <div class="twelve columns title">
+      <h2 class="text-center">O que fazemos</h2>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="four columns text-center">
+      <img src="{{ MEDIA_URL }}images/service-web.jpg">
+      <h4>Desenvolvimento Web</h4>
+      <p>Soluções criativas com linguagens de programação atuais e design inteligente.</p>
+    </div>
+
+    <div class="four columns text-center">
+      <img src="{{ MEDIA_URL }}images/service-consult.jpg">
+      <h4>Consultoria</h4>
+      <p>Serviço de consultoria especializada em tecnologia da informação para implementação de soluções customizadas.</p>
+    </div>
+
+    <div class="four columns text-center">
+      <img src="{{ MEDIA_URL }}images/service-mobile.jpg">
+      <h4>Desenvolvimento Mobile</h4>
+      <p>Desenvolvimento de aplicativos e sites para smartphones</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="row">
+    <div class="twelve columns title">
+      <h2 class="text-center">Nossos trabalhos</h2>
+    </div>
+  </div>
+  <div class="row">
+     {% for trabalhos in projeto %}
+    <div class="four mobile-two columns">
+      <div class="box">
+        <h5>{{ trabalhos.nome }}</h5>
+        <a href="mymodal" data-reveal-id="myModal{{ trabalhos.id }}" class="th">
+            <div class="img-port">
+              <img src="{{ MEDIA_URL }}{{ trabalhos.foto }}">
+            </div>
+            <p>{{ trabalhos.descricao }}</p>
+          </a>
+      </div>
+    </div>
+         <div id="myModal{{ trabalhos.id }}" class="reveal-modal">
+             <img src="{{ MEDIA_URL }}{{ trabalhos.foto }}">
+             <a class="close-reveal-modal">&#215;</a>
+         </div>
+  {% endfor %}
+  </div>
+</section>
+
+<section id="contact">
+  <div class="row">
+    <div class="twelve columns title">
+      <h2 class="text-center">Contatos</h2>
+    </div>
+  </div>  
+  <div class="row">
+   <div class="six columns">
+              <form method="post" class="contato">
+                  {{ form.non_field_errors }}
+                <label class="">Nome</label>
+                <input class="" name="Nome" maxlength="60" type="text" value="" placeholder="seu nome">
+                  {{ form.nome }}
+                  {{ form.nome.errors }}
+                <label class="">Email</label>
+                <input class="" name="email" maxlength="100" type="email" value="" placeholder="seu email">
+                  {{ form.email }}
+                  {{ form.email.errors }}
+                <label class="">Telefone</label>
+                <input class="" name="Telefone" type="text" maxlength="20" value="" placeholder="0012345678">
+                  {{ form.telefone }}
+                  {{ form.telefone.errors }}
+                <label class="">Comentário</label>
+                <textarea class="" name="Comentário" id="textarea" placeholder="deixe seu comentário aqui" cols="1000" rows="10" style="height:70px"></textarea>
+                  {{ form.mensagem }}
+                  {{ form.mensagem.errors }}{% csrf_token %}
+                <button type="submit" class="success button small radius">Enviar</button>
+              </form>
+            </div>
+
+            <div class="six columns">
+              <div class="google-maps">
+                 <iframe width="445" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.br/maps?f=q&amp;source=s_q&amp;hl=pt-BR&amp;geocode=&amp;q=S%C3%A3o+Jo%C3%A3o+do+Piau%C3%AD+-+Piau%C3%AD&amp;aq=0&amp;oq=s%C3%A3o+jo%C3%A3o+do+piau%C3%AD&amp;sll=-5.215868,-42.801792&amp;sspn=1.512528,2.705383&amp;ie=UTF8&amp;hq=&amp;hnear=S%C3%A3o+Jo%C3%A3o+do+Piau%C3%AD+-+Piau%C3%AD&amp;ll=-8.360763,-42.250985&amp;spn=0.002935,0.005284&amp;t=h&amp;z=14&amp;output=embed"></iframe>
+              </div>
+
+              <div id="contact-info">
+                <div class="marker">
+                 <hr>
+                
+                 <address>
+                     Rua Paissandu, 1726. Centro,
+                     Teresina - Piauí. 64001-120<br><br>
+                     Tel:  +55 (86) 9801-2005 / 8848 0705<br>
+                     <p>Email: <a href="mailto:superbits@agencia128bits.com">superbits@agencia128bits.com</a></p>
+                 </address>
+              </div>
+            </div>
+
+
+
+
+
+
+   
+
+  
+  </div>
+</section>
+  
+<footer>
+  <div class="row">
+    <div class="six columns">
+      <h6>128 bits © copyright 2013 &nbsp;- Todos os direitos reservados</h6>
+    </div>
+    <div class="six columns">
+     <ul id="social">
+      <li><a href="#" target="_blank" id="twitter">Twitter</a></li>
+      <li><a href="#" target="_blank" id="facebook">Facebook</a></li>
+      <li><a href="#" target="_blank" id="gplus">Gplus</a></li>
+    </ul>
+    </div>
+  </div>    
+</footer>
+
+  
+  
+  <!-- Included JS Files (Compressed) -->
+  <script src="{{ MEDIA_URL }}javascripts/jquery.js"></script>
+  <script src="{{ MEDIA_URL }}javascripts/foundation.min.js"></script>
+  <script src="{{ MEDIA_URL }}javascripts/scroll.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="{{ MEDIA_URL }}javascripts/app.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#buttonForModal").click(function() {
+      $("#myModal").reveal();
+    });
+  });
+
+ $('.link').scrollTo({ speed: 1500 });
+</script>
+
+  <script>
+    $(document).ready(function(){
+      // hide #back-top first
+      $("#back-top").hide();
+      // fade in #back-top
+      $(function () {
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 50) {
+            $('#back-top').fadeIn();
+          } else {
+            $('#back-top').fadeOut();
+          }
+        });
+        // scroll body to 0px on click
+        $('#back-top a').click(function () {
+          $('body,html').animate({
+            scrollTop: 0
+          }, 800);
+          return false;
+        });
+      });
+
+    });
+  </script>
+
+ 
+  
+</body>
+</html>
