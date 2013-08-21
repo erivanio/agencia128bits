@@ -158,8 +158,8 @@ LOGGING = {
 }
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'erivanio.vanin@gmail.com'
-EMAIL_HOST_PASSWORD = 'vanin14789632'
+EMAIL_HOST_USER = 'email@gmail.com'
+EMAIL_HOST_PASSWORD = 'senha'
 EMAIL_SUBJECT_PREFIX = '[128 bits]'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
