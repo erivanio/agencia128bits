@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
 from django.db import models
+from stdimage import StdImageField
 
 CARGO_CHOICES = (('0','Fundador'),('1','Colaborador'))
 
@@ -9,7 +10,7 @@ class Equipe(models.Model):
     sobrenome = models.CharField(max_length=50)
     cargo = models.CharField(max_length=1,choices=CARGO_CHOICES)
     funcao = models.CharField(max_length=100)
-    foto = models.ImageField(upload_to='fotos')
+    foto = StdImageField(upload_to='fotos',size=(200,200))
     publicar = models.BooleanField(default=True)
     data = models.DateTimeField(default=datetime.now)
 
