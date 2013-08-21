@@ -2,9 +2,9 @@ from django import forms
 from django.core.mail import send_mail
 
 class FormContato(forms.Form):
-    nome = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'placeholder':'Digite seu nome'}))
+    nome = forms.CharField(max_length=50)
     email = forms.EmailField(required=False)
-    telefone = forms.CharField(max_length=10,required = False)
+    telefone = forms.CharField(max_length=14,required = False)
     mensagem = forms.Field(widget=forms.Textarea)
 
     def enviar(self):

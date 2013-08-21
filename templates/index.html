@@ -201,16 +201,21 @@
               <form method="post" class="contato" action="{% url website.views.home %}">{% csrf_token %}
                   {{ form.non_field_errors }}
                 <label class="">Nome</label>
-                <input class="" name="nome" maxlength="60" type="text" value="" placeholder="seu nome">
+                <input class="" name="nome" maxlength="60" type="text" value="" placeholder="Seu nome">
                   {{ form.nome.errors }}
                 <label class="">Email</label>
-                  <input class="" name="email" maxlength="100" type="email" value="" placeholder="seu email">
+                  <input class="" name="email" maxlength="100" type="email" value="" placeholder="exemplo@exemplo.com">
                   {{ form.email.errors }}
                 <label class="">Telefone</label>
-                <input class="" name="telefone" type="text" maxlength="20" value="" placeholder="0012345678">
-                  {{ form.telefone.errors }}
+                <input class="" id="phone" name="telefone" type="text" maxlength="20" value="" placeholder="(99) 9999-9999">
+
+                  {% if form.telefone.errors %}
+                      <div class="alert-box alert">
+                          {{ form.telefone.errors }}
+                      <a href="" class="close">&times;</a>
+                      </div>{% endif %}
                 <label class="">Comentário</label>
-                <textarea class="" name="mensagem" id="textarea" placeholder="deixe seu comentário aqui" cols="1000" rows="10" style="height:70px"></textarea>
+                <textarea class="" name="mensagem" id="textarea" placeholder="Fale conosco." cols="1000" rows="10" style="height:70px"></textarea>
                   {{ form.mensagem.errors }}
                 <button type="submit" class="success button small radius">Enviar</button>
               </form>
@@ -266,7 +271,8 @@
   <script src="{{ MEDIA_URL }}javascripts/jquery.js"></script>
   <script src="{{ MEDIA_URL }}javascripts/foundation.min.js"></script>
   <script src="{{ MEDIA_URL }}javascripts/scroll.js"></script>
-  
+  <script src="{{ MEDIA_URL }}javascripts/maskedinput.js"></script>
+
   <!-- Initialize JS Plugins -->
   <script src="{{ MEDIA_URL }}javascripts/app.js"></script>
 <script type="text/javascript">
@@ -303,7 +309,11 @@
 
     });
   </script>
-
+<script>
+    $(document).ready(function($){
+        $("#phone").mask("(99) 9999-9999");
+    });
+</script>
  
   
 </body>
